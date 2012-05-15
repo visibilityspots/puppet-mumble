@@ -103,7 +103,7 @@ class mumble-server::rpm ($mumble_password, $mumble_port){
 	    	subscribe => File["/etc/mumble-server.ini"],
 	}  
 	# Ordering manifest so the service will run after all files, packages, and service iptables have been created, changed or restarted
-	Yumrepo['visibilityspots'] -> Package['mumble-server'] -> File['/etc/mumble-server.ini'] -> Class['mumble-server::iptables'] -> Service['mumble-server']
+	Yumrepo['inuits'] -> Package['mumble-server'] -> File['/etc/mumble-server.ini'] -> Class['mumble-server::iptables'] -> Service['mumble-server']
 }
 # Class which opens the given tcp port and will restart the iptables service 
 class mumble-server::iptables ($mumble_port) {
