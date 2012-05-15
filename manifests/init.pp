@@ -96,22 +96,7 @@ class mumble-server::rpm ($mumble_password, $mumble_port){
 		ensure     	=> running,
 	    	subscribe => File["/etc/mumble-server.ini"],
 	}  
+
 	# Ordering manifest so the service will run after all files, packages, and service iptables have been created, changed or restarted
-	Yumrepo['inuits'] -> Package['mumble-server'] -> File['/etc/mumble-server.ini'] -> Class['mumble-server::iptables'] -> Service['mumble-server']
-}
-# Class which opens the given tcp port and will restart the iptables service 
-class mumble-server::iptables ($mumble_port) {
-	# Replace iptables config
-	file { "/etc/sysconfig/iptables":
-		mode 	=> "0600",
-		owner 	=> "root",
-		group	=> "root",
-		replace => "true",
-		content => template("mumble-server/iptables.erb"),
-	}
-	# Ensure service iptables is running and restarted after change of config file
-	service { "iptables":
-		ensure => running,
-	    	subscribe => File["/etc/sysconfig/iptables"],
-	}
+	Yumrepo['inuits'] -> Package['mumble-server'] -> File['/etc/mumble-server.ini'] -> Service['mumble-server']
 }
