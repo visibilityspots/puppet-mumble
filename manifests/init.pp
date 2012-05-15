@@ -83,16 +83,10 @@ class mumble-server::rpm ($mumble_password, $mumble_port){
 	class {'mumble-server::iptables':
 		mumble_port 	=> $mumble_port,
 	}
-	# Adding repo from where the package mumble-server can be installed	
-	yumrepo { 'visibilityspots':
-		baseurl		=> "http://www.visibilityspots.com/repos/mumble-server",
-		descr 		=> "Visibilityspots.com",
-		gpgcheck 	=> 0,
-     		enabled 	=> 1;
-  	}	
 	# Installing the package mumble-server	
 	package { "mumble-server":
 		ensure 	=> "installed",
+    require => Yumrepo['inuits'],
 	}
 	# Creating and importing mumble-server configuration file
 	file { "/etc/mumble-server.ini":
