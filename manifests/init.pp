@@ -33,10 +33,6 @@ class mumble-server::manual ($mumble_password, $mumble_port) {
 	# Include mumble-server user and group
 	include mumble-server_group
 	include mumble-server_user 
-	# Declaring class iptables for firewall
-	class {'mumble-server::iptables':
-		mumble_port 	=> $mumble_port,
-	}
 	# Importing files for mumble service
 	file { "/usr/sbin/murmurd":
 		owner 	=> "root",
@@ -75,14 +71,12 @@ class mumble-server::manual ($mumble_password, $mumble_port) {
 	    	subscribe => File["/etc/mumble-server.ini"],
 	}  
 	# Ordering manifest so the service will run after all files, users, groups and iptables have been created or changed
-	Group['mumble-server'] -> User['mumble-server'] -> File['/usr/sbin/murmurd'] -> File['/etc/mumble-server.ini'] -> File['/etc/rc.d/init.d/mumble-server'] -> File['/var/lib/mumble-server'] -> File['/var/log/mumble-server'] -> Class['mumble-server::iptables'] -> Service['mumble-server']
+	Group['mumble-server'] -> User['mumble-server'] -> File['/usr/sbin/murmurd'] -> File['/etc/mumble-server.ini'] -> File['/etc/rc.d/init.d/mumble-server'] -> File['/var/lib/mumble-server'] -> File['/var/log/mumble-server'] -> Service['mumble-server']
 }
+
+
 # Installation of the mumble service by installing the mumble-server package
 class mumble-server::rpm ($mumble_password, $mumble_port){
-	# Declaring class iptables for firewall
-	class {'mumble-server::iptables':
-		mumble_port 	=> $mumble_port,
-	}
 	# Installing the package mumble-server	
 	package { "mumble-server":
 		ensure 	=> "installed",
