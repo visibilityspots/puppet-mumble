@@ -23,5 +23,12 @@
 #		mumble_port 	=> '64738',
 #	}
 #
-class mumble (){
+class mumble {
+  include mumble::iptables
+  include mumble::install
+  include mumble::service
+
+  Class['mumble::iptables'] ->
+  Class['mumble::install'] ->
+  Class['mumble::service']
 }
