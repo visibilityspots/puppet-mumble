@@ -10,30 +10,30 @@ class mumble::manual ($mumble_password, $mumble_port) {
 	include mumble::user 
 
 	# Importing files for mumble service
-	file { "/usr/sbin/murmurd":
-		owner 	=> "root",
-		group	=> "root",
-		source	=> "puppet:///modules/mumble/murmur.x86",
+	file { '/usr/sbin/murmurd':
+		owner  => 'root',
+		group  => 'root',
+		source => 'puppet:///modules/mumble/murmur.x86',
 	}	
 
-	file { "/etc/rc.d/init.d/mumble-server":
-		owner 	=> "root",
-		group	=> "root",
-		mode	=> "0755",
-		source	=> "puppet:///modules/mumble/mumble-server",	
+	file { '/etc/rc.d/init.d/mumble-server':
+		owner  => 'root',
+		group  => 'root',
+		mode   => '0755',
+		source => 'puppet:///modules/mumble/mumble-server',
 	}
 
 	# Creating mumble-server directories
-	file { "/var/lib/mumble-server":
-		ensure	=> "directory",
-		owner 	=> "mumble-server",
-		group	=> "mumble-server",
+	file { '/var/lib/mumble-server':
+		ensure => 'directory',
+		owner  => 'mumble-server',
+		group  => 'mumble-server',
 	}
 
-	file { "/var/log/mumble-server":
-		ensure	=> "directory",
-		owner 	=> "mumble-server",
-		group	=> "mumble-server",
+	file { '/var/log/mumble-server':
+		ensure => 'directory',
+		owner  => 'mumble-server',
+		group  => 'mumble-server',
 	}
 
 	# Ordering manifest so the service will run after all files, users, groups and iptables have been created or changed
@@ -45,8 +45,8 @@ class mumble::manual ($mumble_password, $mumble_port) {
 class mumble::rpm ($mumble_password, $mumble_port){
 
 	# Installing the package mumble-server	
-	package { "mumble-server":
-		ensure 	=> "installed",
+	package { 'mumble-server':
+		ensure 	=> 'installed',
     require => Yumrepo['inuits'],
 	}
 

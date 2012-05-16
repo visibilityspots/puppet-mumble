@@ -1,5 +1,5 @@
 class mumble::service {
-  file { '/etc/mumble-server.ini':
+  file{'/etc/mumble-server.ini':
     owner   => 'root',
     group   => 'root',
     replace => true,
