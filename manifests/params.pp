@@ -5,7 +5,7 @@ class mumble::params (
 ) {
   $_install_type = $mumble::params::install_type ? {
     undef   => 'rpm',
-    default => ${mumble::params::install_type},
+    default => $mumble::params::install_type,
   }
 
   $_password = $mumble::params::password ? {
