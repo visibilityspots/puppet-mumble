@@ -1,26 +1,26 @@
 
 # Installation of the mumble service by creating the necessary files manualy
-class mumble-server::manual ($mumble_password, $mumble_port) {
+class mumble::manual ($mumble_password, $mumble_port) {
 	# Importing directory's for creating groups and users
 	import 'groups/*.pp' 
 	import 'users/*.pp'
 
-	# Include mumble-server user and group
-	include mumble-server_group
-	include mumble-server_user 
+	# Include mumble user and group classes
+	include mumble::group
+	include mumble::user 
 
 	# Importing files for mumble service
 	file { "/usr/sbin/murmurd":
 		owner 	=> "root",
 		group	=> "root",
-		source	=> "puppet:///modules/mumble-server/murmur.x86",
+		source	=> "puppet:///modules/mumble/murmur.x86",
 	}	
 
 	file { "/etc/rc.d/init.d/mumble-server":
 		owner 	=> "root",
 		group	=> "root",
 		mode	=> "0755",
-		source	=> "puppet:///modules/mumble-server/mumble-server",	
+		source	=> "puppet:///modules/mumble/mumble-server",	
 	}
 
 	# Creating mumble-server directories
@@ -42,7 +42,7 @@ class mumble-server::manual ($mumble_password, $mumble_port) {
 
 
 # Installation of the mumble service by installing the mumble-server package
-class mumble-server::rpm ($mumble_password, $mumble_port){
+class mumble::rpm ($mumble_password, $mumble_port){
 
 	# Installing the package mumble-server	
 	package { "mumble-server":

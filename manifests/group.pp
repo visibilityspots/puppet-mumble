@@ -1,6 +1,6 @@
-# = Class: mumble-server_group
+# = Class: mumble::group
 #
-# This class creates the mumble-server_group
+# This class creates the mumble group
 #
 # == Parameters:
 #
@@ -10,7 +10,7 @@
 #
 # == Sample Usage:
 # 
-class mumble-server_group {
+class mumble::group {
 	# Creating mumble-server group
 	group { "mumble-server":
 		ensure => present,

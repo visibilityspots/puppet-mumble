@@ -3,7 +3,7 @@ class mumble::service {
     owner   => 'root',
     group   => 'root',
     replace => true,
-    content => template('mumble-server/mumble-server.erb'),
+    content => template('mumble/mumble-server.erb'),
   }
 
   service{'mumble-server':

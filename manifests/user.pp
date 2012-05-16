@@ -1,6 +1,6 @@
-# = Class: mumble-server_user
+# = Class: mumble::user
 #
-# This class creates the mumble-server_user
+# This class creates the mumble user
 #
 # == Parameters:
 #
@@ -10,7 +10,7 @@
 #
 # == Sample Usage:
 # 
-class mumble-server_user {
+class mumble::user {
 	# Creating mumble-server user
 	user { "mumble-server":
 		ensure 	=> "present",

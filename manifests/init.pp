@@ -1,6 +1,6 @@
-# = Class: mumble-server
+# = Class: mumble
 #
-# This class installs the mumble-server
+# This class installs the mumble server
 #
 # == Parameters:
 #
@@ -14,14 +14,14 @@
 #
 # == Sample Usage:
 #
-#	class {'mumble-server::manual':
+#	class {'mumble::manual':
 #		mumble_password => 'letsmumble',
 #		mumble_port 	=> '64738',
 #	}
-#	class {'mumble-server::rpm':
+#	class {'mumble::rpm':
 #		mumble_password => 'letsmumble',
 #		mumble_port 	=> '64738',
 #	}
 #
-class mumble-server (){
+class mumble (){
 }
