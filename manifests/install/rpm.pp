@@ -1,5 +1,5 @@
 # Installation of the mumble service by installing the mumble-server package
-class mumble::install::rpm ($mumble_password, $mumble_port){
+class mumble::install::rpm {
 
 	# Installing the package mumble-server	
 	package { 'mumble-server':

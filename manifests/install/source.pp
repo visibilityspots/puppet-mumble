@@ -1,5 +1,5 @@
 # Installation of the mumble service by creating the necessary files manualy
-class mumble::install::source ($mumble_password, $mumble_port) {
+class mumble::install::source {
 	# Importing directory's for creating groups and users
 	import 'groups/*.pp' 
 	import 'users/*.pp'
