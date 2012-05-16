@@ -1,1 +1,1 @@
-include mumble-server
+include mumble
