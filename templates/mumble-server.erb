@@ -22,14 +22,14 @@
 welcometext="<br />Welcome to this server running <b>Murmur</b>.<br />Enjoy your stay!<br />"
 
 # Port to bind TCP and UDP sockets to
-port=<%= mumble_port %>
+port=<%= scope.lookupvar('mumble::params::_port') %>
 
 # Specific IP or hostname to bind to.
 # If this is left blank (default), murmur will bind to all available addresses.
 #host=
 
 # Password to join server
-serverpassword=<%= mumble_password %>
+serverpassword=<%= scope.lookupvar('mumble::params::_password') %>
 
 # Maximum bandwidth (in bytes per second) clients are allowed
 # send speech at.

@@ -1,6 +1,6 @@
 class mumble::iptables {
   include ::iptables
   iptables::rule{'mumble-server':
-    dport => "${mumble::port}",
+    dport => "${mumble::params::_port}",
   }
 }
