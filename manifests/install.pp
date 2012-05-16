@@ -1,5 +1,5 @@
 class mumble::install {
-  case $mumble::params::install_type {
+  case $mumble::params::_install_type {
     'source': {
       include mumble::install::source
     }
