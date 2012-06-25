@@ -33,7 +33,7 @@ serverpassword=<%= scope.lookupvar('mumble::params::_password') %>
 
 # Maximum bandwidth (in bytes per second) clients are allowed
 # send speech at.
-bandwidth=10000
+bandwidth=<%= scope.lookupvar('mumble::params::_bandwidth') %>
 
 # Maximum number of concurrent clients allowed.
 users=100
