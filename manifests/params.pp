@@ -1,12 +1,12 @@
 class mumble::params (
-  $install_type = undef,
+  $package_name = undef,
   $password     = undef,
   $port         = undef,
   $bandwidth    = undef,
 ) {
-  $_install_type = $mumble::params::install_type ? {
-    undef   => 'rpm',
-    default => $mumble::params::install_type,
+  $_package_name = $mumble::params::package_name ? {
+    undef   => 'mumble-server',
+    default => $mumble::params::package_name,
   }
 
   $_password = $mumble::params::password ? {

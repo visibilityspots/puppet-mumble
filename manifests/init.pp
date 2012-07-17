@@ -26,11 +26,11 @@
 class mumble {
   include mumble::params
   include mumble::iptables
-  include mumble::config
+  include mumble::install
   include mumble::service
 
   Class['mumble::params'] ->
   Class['mumble::iptables'] ->
-  Class['mumble::config'] ->
+  Class['mumble::install'] ->
   Class['mumble::service']
 }
