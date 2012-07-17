@@ -1,5 +1,5 @@
 # Installation of the mumble service by creating the necessary files manualy
-class mumble::install::source {
+class mumble::config::redhat::source {
 	# Importing directory's for creating groups and users
 	import 'groups/*.pp' 
 	import 'users/*.pp'
