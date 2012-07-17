@@ -1,6 +1,0 @@
-name    'mumble-server'
-version '1.0.2'
-author 'Jan Collijs'
-summary 'Mumble server 1.2.3'
-description 'Puppetized mumble-server 1.2.3 on CentOS'
-project_page 'http://www.github.com/JanCollijs/puppet-mumble-server'
