@@ -4,11 +4,17 @@ class mumble::params (
   $port         = undef,
   $bandwidth    = undef,
 ) {
+  ########################
+  ####    Packages    ####
+  ########################
   $_package_name = $mumble::params::package_name ? {
     undef   => 'mumble-server',
     default => $mumble::params::package_name,
   }
 
+  ######################
+  ####    Config    ####
+  ######################
   $_password = $mumble::params::password ? {
     undef   => 'letsmumble',
     default => $mumble::params::password,
