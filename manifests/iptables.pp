@@ -5,12 +5,12 @@ class mumble::iptables {
   }
 
   iptables::rule{'mumble-server-tcp':
-    dport => $::mumble::params::_port,
+    dport => $mumble::port,
     proto => 'tcp',
   }
 
   iptables::rule{'mumble-server-udp':
-    dport => $::mumble::params::_port,
+    dport => $mumble::port,
     proto => 'udp',
   }
 

@@ -22,18 +22,18 @@
 welcometext="<br />Welcome to this server running <b>Murmur</b>.<br />Enjoy your stay!<br />"
 
 # Port to bind TCP and UDP sockets to
-port=<%= scope.lookupvar('mumble::params::_port') %>
+port=<%= scope.lookupvar('mumble::port') %>
 
 # Specific IP or hostname to bind to.
 # If this is left blank (default), murmur will bind to all available addresses.
 #host=
 
 # Password to join server
-serverpassword=<%= scope.lookupvar('mumble::params::_password') %>
+serverpassword=<%= scope.lookupvar('mumble::password') %>
 
 # Maximum bandwidth (in bytes per second) clients are allowed
 # send speech at.
-bandwidth=<%= scope.lookupvar('mumble::params::_bandwidth') %>
+bandwidth=<%= scope.lookupvar('mumble::bandwidth') %>
 
 # Maximum number of concurrent clients allowed.
 users=100
@@ -69,15 +69,22 @@ pidfile=/var/run/mumble-server/mumble-server.pid
 
 # Murmur defaults to not using D-Bus. If you wish to use dbus, please
 # specify so here.
-#
+<% if scope.lookupvar('mumble::dbus') == true -%>
 dbus=system
+<% else -%>
+#dbus=system
+<% end -%>
 
 # If you want to use ZeroC ICE to communicate with Murmur, you need
 # to specify the endpoint to use. Since there is no authentication
 # with ICE, you should only use it if you trust all the users who have
 # shell access to your machine.
 # Please see the ICE documentation on how to specify endpoints.
+<% if scope.lookupvar('mumble::ice') == true -%>
 ice="tcp -h 127.0.0.1 -p 6502"
+<% else -%>
+#ice="tcp -h 127.0.0.1 -p 6502"
+<% end -%>
 
 # Murmur default to logging to murmur.log. If you leave this blank,
 # murmur will log to the console (linux) or through message boxes (win32).

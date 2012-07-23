@@ -1,38 +1,12 @@
-class mumble::params (
+# Class mumble::params
+# This class contains every parameter which will be used in this puppet module
+# for setting up a mumble voip server
 
-  $package_name = undef,
-  $password     = undef,
-  $port         = undef,
-  $bandwidth    = undef,
-
-){
-
-  ########################
-  ####    Packages    ####
-  ########################
-
-  $_package_name = $mumble::params::package_name ? {
-    undef   => 'mumble-server',
-    default => $mumble::params::package_name,
-  }
-
-  ######################
-  ####    Config    ####
-  ######################
-
-  $_password = $mumble::params::password ? {
-    undef   => 'letsmumble',
-    default => $mumble::params::password,
-  }
-
-  $_port = $mumble::params::port ? {
-    undef   => '64738',
-    default => $mumble::params::port,
-  }
-
-  $_bandwidth = $mumble::params::bandwidth ? {
-    undef   => '100000',
-    default => $mumble::params::bandwidth,
-  }
-
+class mumble::params {
+  # Packages
+  $package_name = 'mumble-server'
+  # Configuration parameter
+  $password = 'letsmumble'
+  $port = '64738'
+  $bandwidth = '6000'
 }
