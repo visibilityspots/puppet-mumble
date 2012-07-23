@@ -1,0 +1,46 @@
+MULTIPLE DISTRIBUTION INSTALL
+
+* Adapting module for multiple os install				| 
+
+* Cent OS								| OK
+* Debian								| 
+* Compile from source							|  
+
+MUMBLE
+
+* LDAP authentication							| IN PROGRESS
+* External access							|
+* Meeting rooms								|
+* 3th party webagent							| 
+*->	nginx or lighthttp						| 
+*->	ICE configuration						| 
+
+PUPPET
+
+* Puppettize the above configuration					|
+
+TESTING
+
+* Voice communication with LDAP	authentication				|
+* 3th party app								|
+* External access							|
+
+Installing webserver on centos 6:
+
+https://github.com/BenoitCattie/puppet-nginx
+http://nginx.org/ & PHP -> http://www.lifelinux.com/how-to-install-nginx-and-php-fpm-on-centos-6-via-yum/
+http://www.lighttpd.net/ -> http://davidwinter.me/articles/2008/06/22/lighttpd-and-php-on-centos-5/
+
+Installing ICE on centos 6:
+
+http://www.zeroc.com/download.html#linux_rpms
+
+LDAP authentication:
+
+http://gitorious.org/mumble-scripts/mumble-scripts/blobs/master/Authenticators/LDAP/LDAPauth.py
+
+
+
+LINKS
+
+http://mumble.sourceforge.net/
