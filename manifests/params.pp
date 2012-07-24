@@ -6,7 +6,7 @@ class mumble::params {
   # Packages
   $package_name = 'mumble-server'
   # Configuration parameter
-  $password = 'letsmumble'
+  $password = 'yourpassword'
   $port = '64738'
   $bandwidth = '6000'
 }
