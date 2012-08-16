@@ -6,7 +6,7 @@ class mumble (
   $password     = $mumble::params::password,
   $port         = $mumble::params::port,
   $bandwidth    = $mumble::params::bandwith,
-  $ice		= undef,
+  $ice          = undef,
   $dbus         = undef,
 ) inherits mumble::params {
   include ::mumble::install
