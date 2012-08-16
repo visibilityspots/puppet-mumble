@@ -3,9 +3,9 @@
 # Class which ensures the mumble services is running
 class mumble::service {
   service{'mumble-server':
+    ensure    => 'running',
     hasstatus => true,
     enable    => true,
-    ensure    => 'running',
-    require   => File['/etc/mumble-server.ini'],
-  }  
+    require   => File['/etc/mumble-server.ini'];
+  }
 }
