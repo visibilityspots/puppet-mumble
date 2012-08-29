@@ -6,6 +6,6 @@ class mumble::service {
     ensure    => 'running',
     hasstatus => true,
     enable    => true,
-    require   => File['/etc/mumble-server.ini'];
+    require   => File['/etc/mumble-server.ini'],
   }
 }
