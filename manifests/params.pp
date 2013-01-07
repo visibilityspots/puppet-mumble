@@ -6,5 +6,6 @@ class mumble::params {
   $package_name  = 'mumble-server'
   $password      = 'yourpassword'
   $port          = '64738'
-  $bandwidth = '6000'
+  $bandwidth     = '6000'
+  $motd          = false
 }
