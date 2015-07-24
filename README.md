@@ -1,8 +1,10 @@
+# puppet-mumble [![Build Status](https://travis-ci.org/visibilityspots/puppet-mumble.svg?branch=master)](https://travis-ci.org/visibilityspots/puppet-mumble)
+
 Deploying a fully functional mumble server using puppet.
 
 Supported debian & centos OS
 
-Depends on puppet-module iptables, available on puppetlabs forge or the inuits module on https://github.com/Inuits/puppet-module-library 
+Depends on puppet-module iptables, available on puppetlabs forge or the inuits module on https://github.com/Inuits/puppet-module-library
 
 Mumble version 1.2.3
 http://mumble.sourceforge.net/Install_CentOS5
@@ -12,14 +14,14 @@ http://sourceforge.net/projects/mumble/files/Mumble/1.2.3/murmur-static_x86-1.2.
 ftp://rpmfind.net/linux/Mandriva/devel/cooker/x86_64/media/contrib/release/mumble-server-1.2.3-1-mdv2011.0.x86_64.rpm
 
 Example of Vagrantfile which deploys 2 boxes, one centos and one debian like
-
+```vagrant
 Vagrant::Config.run do |config|
   config.vm.define :centos do |centos_config|
   	centos_config.vm.box = "centos-6.2"
 	centos_config.vm.host_name = "mumble-centos"
 	centos_config.vm.forward_port 64738, 64738
 	centos_config.vm.provision :puppet do |puppet|
-	     puppet.manifests_path = "manifests"     
+	     puppet.manifests_path = "manifests"
 	     puppet.manifest_file = "site.pp"
 	     puppet.module_path = "modules"
 	end
@@ -30,9 +32,10 @@ Vagrant::Config.run do |config|
         #debian_config.vm.network :bridged, {:bridge => "em1"}
 	debian_config.vm.forward_port 64738, 64738
 	debian_config.vm.provision :puppet do |puppet|
-	     puppet.manifests_path = "manifests"     
+	     puppet.manifests_path = "manifests"
 	     puppet.manifest_file = "site.pp"
 	     puppet.module_path = "modules"
 	end
   end
 end
+```

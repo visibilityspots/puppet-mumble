@@ -1,0 +1,8 @@
+name    	'puppet-mumble'
+version 	'1.0.0'
+source 		'Github'
+author 		'Jan Collijs'
+license 	'GPL'
+summary 	'This module manages a mumble server'
+description 	'Using this module the mumble server will be maintained'
+project_page 	'https://github.com/visibilityspots/puppet-mumble'
